@@ -17,7 +17,6 @@ class CreateLikesTable extends Migration
             $table->id();
             $table->string('share_id');
             $table->string('user_id');
-            $table->string('content');
             $table->timestamps();
         });
     }

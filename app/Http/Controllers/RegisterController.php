@@ -11,23 +11,20 @@ class RegisterController extends Controller
 {
     public function post(Request $request)
     {
-        $hashed_password=Hash::make($request->password);
-        $now=Carbon::now();
-        $param=[
-            "name"=>$request->name,
-            "email"=>$request->email,
-            "password"=>$hashed_password,
-            "profile"=>$request->profile,
-            "created_at"=>$now,
-            "update_at"=>$now,
+        $now = Carbon::now();
+        $hashed_password = Hash::make($request->password);
+        $param = [
+            "name" => $request->name,
+            "email" => $request->email,
+            "password" => $hashed_password,
+            "profile" => $request->profile,
+            "created_at" => $now,
+            "updated_at" => $now,
         ];
         DB::table('users')->insert($param);
         return response()->json([
-            'message'=>'user created successfuly',
-            'data'=>$param
-        ],200);
-
-
-
+            'message' => 'User created successfully',
+            'data' => $param
+        ], 200);
     }
 }
