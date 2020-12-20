@@ -22,7 +22,9 @@ class RegisterController extends Controller
             "updated_at" => $now,
         ];
         DB::table('users')->insert($param);
-        return response()->json([
+        return response()
+            ->header('Access-Control-Allow-Origin', '*')
+        ->json([
             'message' => 'User created successfully',
             'data' => $param
         ], 200);
