@@ -23,10 +23,9 @@ class RegisterController extends Controller
         ];
         DB::table('users')->insert($param);
         return response()
-            ->header('Access-Control-Allow-Origin', '*')
-        ->json([
-            'message' => 'User created successfully',
-            'data' => $param
-        ], 200);
+            ->json([
+                'message' => 'User created successfully',
+                'data' => $param
+            ], 200);
     }
 }
